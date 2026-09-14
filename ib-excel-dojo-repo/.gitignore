@@ -1,0 +1,14 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+~$*
+*.tmp
+*.bak
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.idea/
+.vscode/

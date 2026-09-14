@@ -1,0 +1,10 @@
+IB Excel Dojo
+Free to copy, share, and adapt for personal practice and teaching.
+
+Keep this notice and the product disclaimer:
+
+This workbook uses hypothetical figures for a fictional company (Apex Industrial).
+It is a training file, not investment advice, not a valuation of any real issuer,
+and not a substitute for a 10-K, CIM, or a supervised live model.
+
+No warranty. If you send the file, send it as practice — not as a finished work product.

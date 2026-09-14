@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IB Excel Dojo — practice Excel like a first-year banker</title>
+  <meta name="description" content="A free practice workbook for investment-banking Excel: shortcuts, format gym, formula drills, a live 3-statement model, comps, and a check dashboard." />
+  <meta property="og:title" content="IB Excel Dojo" />
+  <meta property="og:description" content="Keyboard-first Excel practice. Blue is input. Black is math. Green is a link." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='10' fill='%231F4E79'/><text x='32' y='42' text-anchor='middle' font-family='Arial' font-size='28' font-weight='700' fill='white'>IB</text></svg>" />
+  <style>
+    :root {
+      --navy: #1F4E79;
+      --navy-2: #16395a;
+      --ink: #122033;
+      --muted: #5b6b7c;
+      --line: #d7e0ea;
+      --paper: #f6f3ee;
+      --white: #fff;
+      --blue: #0000FF;
+      --green: #008000;
+      --gold: #c4a574;
+      --yellow: #fff2cc;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+    a { color: var(--navy); }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { font-weight: 700; letter-spacing: .08em; font-size: 13px; text-transform: uppercase; }
+    .brand span { color: var(--gold); }
+    nav a { color: var(--white); text-decoration: none; margin-left: 18px; font-size: 13px; opacity: .9; }
+    nav a:hover { opacity: 1; }
+    .hero { padding: 72px 0 56px; }
+    .kicker { color: var(--navy); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    h1 { font-size: clamp(32px, 5vw, 54px); line-height: 1.08; margin: 10px 0 16px; letter-spacing: -0.03em; }
+    .lede { font-size: 18px; color: var(--muted); max-width: 640px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-block; text-decoration: none; border-radius: 4px;
+      padding: 12px 18px; font-weight: 700; font-size: 14px;
+    }
+    .btn-primary { background: var(--navy); color: var(--white); }
+    .btn-ghost { background: transparent; color: var(--navy); border: 1px solid var(--navy); }
+    .meta { margin-top: 18px; font-size: 13px; color: var(--muted); }
+    .colors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 36px 0 8px; }
+    .chip { background: var(--white); border: 1px solid var(--line); padding: 14px; }
+    .chip b { display: block; font-size: 13px; }
+    .chip .swatch { font-family: Consolas, monospace; font-size: 13px; }
+    .blue { color: var(--blue); }
+    .green { color: var(--green); }
+    section { padding: 28px 0 8px; }
+    h2 { font-size: 24px; letter-spacing: -0.02em; margin: 0 0 14px; }
+    .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .tab { background: var(--white); border: 1px solid var(--line); padding: 14px 16px; }
+    .tab code { font-size: 12px; background: #eef3f8; padding: 1px 6px; }
+    .tab p { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+    ol.rules { padding-left: 18px; }
+    ol.rules li { margin: 8px 0; }
+    .callout { background: var(--navy); color: var(--white); padding: 28px; margin: 36px 0; }
+    .callout h2 { color: var(--white); }
+    .callout p { color: #d6e4f0; max-width: 720px; }
+    footer { padding: 36px 0 48px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); margin-top: 24px; }
+    @media (max-width: 720px) {
+      .colors, .tabs { grid-template-columns: 1fr; }
+      nav { display: none; }
+      .hero { padding-top: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="brand">IB Excel <span>Dojo</span></div>
+      <nav>
+        <a href="#inside">Inside</a>
+        <a href="#rules">Rules</a>
+        <a href="#start">Start</a>
+        <a href="IB_Excel_Dojo.xlsx">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">v1.0 · free practice file</div>
+      <h1>Practice Excel the way a first-year banker actually uses it.</h1>
+      <p class="lede">
+        Not another function encyclopedia. A gym: shortcuts, a format rehab, 20 live formula drills,
+        a mini 3-statement model that balances, comps math, a sensitivity grid, and a check tab a VP would open first.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="IB_Excel_Dojo.xlsx" download>Download the workbook</a>
+        <a class="btn btn-ghost" href="#start">14-day plan</a>
+      </div>
+      <p class="meta">.xlsx · 9 tabs · hypothetical numbers · not advice, not a live deal model</p>
+
+      <div class="colors">
+        <div class="chip"><b>Blue font</b><span class="swatch blue">RGB 0,0,255 — hardcoded inputs</span></div>
+        <div class="chip"><b>Black font</b><span class="swatch">RGB 0,0,0 — formulas only</span></div>
+        <div class="chip"><b>Green font</b><span class="swatch green">RGB 0,128,0 — cross-sheet links</span></div>
+      </div>
+    </section>
+
+    <section id="inside">
+      <h2>What’s in the file</h2>
+      <div class="tabs">
+        <div class="tab"><code>00_Start</code><p>Color language and house rules. Read this once.</p></div>
+        <div class="tab"><code>01_Shortcuts</code><p>Windows-first shortcut bible, starred by week. Mac column included.</p></div>
+        <div class="tab"><code>02_Format_Gym</code><p>Deliberately ugly extract. Rebuild it to bank standard with no mouse.</p></div>
+        <div class="tab"><code>03_Formula_Dojo</code><p>20 drills: INDEX/MATCH, SUMIFS, NPV/IRR, SUMPRODUCT. Yellow cells are yours.</p></div>
+        <div class="tab"><code>04_3Statement</code><p>Apex Industrial mini model. Toggle yellow drivers and watch IS / BS / CFS move.</p></div>
+        <div class="tab"><code>05_Sensitivity</code><p>WACC × exit-multiple grid plus a Downside / Base / Upside case toggle.</p></div>
+        <div class="tab"><code>06_Comps</code><p>Price → equity → EV → multiples → implied target price.</p></div>
+        <div class="tab"><code>07_Checks</code><p>Balance-sheet, cash-roll, coverage flags. If it’s red, the file doesn’t leave the desk.</p></div>
+      </div>
+    </section>
+
+    <section id="rules">
+      <h2>House rules the file is built on</h2>
+      <ol class="rules">
+        <li>One formula, copied across years. If you rewrite FY27 by hand, you already lost.</li>
+        <li>Assumptions live in one yellow block. The tax rate is not hiding in eleven places.</li>
+        <li>Units in the header (<em>Revenue ($mm)</em>), not inside the cell.</li>
+        <li>Custom format <code>$#,##0;($#,##0);"-"</code> — negatives in parentheses, zeros as dashes.</li>
+        <li>No merged cells in a number grid. They break Ctrl+Arrow.</li>
+        <li>Build the check tab before the forecast.</li>
+        <li>Historical = blue hardcodes. Forecast = black formulas.</li>
+      </ol>
+    </section>
+
+    <section id="start">
+      <h2>How to use it this week</h2>
+      <p>Tab <code>08_Plan</code> is a 14-day schedule, 25–45 minutes a day. If you only have tonight:</p>
+      <ol class="rules">
+        <li>Print or pin <code>01_Shortcuts</code> and drill the starred Week 1 rows until they are boring.</li>
+        <li>Fix <code>02_Format_Gym</code> with the keyboard only.</li>
+        <li>Change FY26 growth on <code>04_3Statement</code> from 8% to 3% and explain what moved — using F2 and Ctrl+[.</li>
+      </ol>
+    </section>
+
+    <div class="callout">
+      <h2>Send it. Don’t overthink it.</h2>
+      <p>
+        This is a practice file, not a certified course and not investment advice.
+        Numbers are hypothetical. If you post it, keep the disclaimer.
+        If you staff a live deal tomorrow, still rebuild from the 10-K — this is the gym, not the game.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="IB_Excel_Dojo.xlsx" download style="background:#fff;color:#1F4E79">Get IB_Excel_Dojo.xlsx</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      IB Excel Dojo v1.0 · practice workbook · hypothetical company (Apex Industrial) · not financial advice.
+    </div>
+  </footer>
+</body>
+</html>

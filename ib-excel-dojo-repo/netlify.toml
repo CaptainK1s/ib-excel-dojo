@@ -1,0 +1,4 @@
+[[headers]]
+  for = "/*.xlsx"
+  [headers.values]
+    Content-Disposition = "attachment"
